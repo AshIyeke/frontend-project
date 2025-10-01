@@ -1,5 +1,5 @@
 "use client"
-import * as React from "react"
+import { useState } from "react"
 import { ChevronDownIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -11,10 +11,10 @@ import {
 } from "@/components/ui/popover"
 
 export default function Search() {
-    const [open, setOpen] = React.useState(false)
-    const [date, setDate] = React.useState<Date | undefined>(undefined)
+    const [open, setOpen] = useState(false)
+    const [date, setDate] = useState<Date | undefined>(undefined)
     return (
-    <div className=" md:flex space-y-4 mx-auto  gap-6 p-10  justify-center items-center text-center bg-white   shadow-lg rounded-lg  " >
+    <div className=" md:flex space-y-4 mx-auto  gap-6 p-10  justify-center items-center text-center rounded-lg  " >
         <div>
             <h1>Location</h1>
             <input className="border-2 p-1.5 w-60 rounded-lg  " aria-label="Location" type="text" placeholder="Location" />
