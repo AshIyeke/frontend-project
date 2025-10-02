@@ -57,7 +57,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           
-          <div className="md:hidden justify-center items-center flex gap-4">
+          <div className="md:hidden justify end flex items-center space-x-4">
             <span><ModeToggle /></span>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -87,14 +87,19 @@ export function Navbar() {
               </Link>
             ))}
 
-            <div className="px-4 pt-4 space-y-3 border-t border-gray-200">
-              <button className="w-full px-6 py-3 text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-white transition-all duration-200">
+            <div className="px-4 pt-4 space-y-3 border- border-gray-200">
+              <Link href="/login">
+              <button className="w-full px-6 py-3 text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
                 Login
               </button>
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md">
+              </Link>
+              <Link href="/signup">
+              <button className="w-full mt-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md">
                 Sign Up
               </button>
+              </Link>
             </div>
+
           </div>
         </div>
       </div>

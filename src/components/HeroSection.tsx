@@ -54,7 +54,7 @@ export default function HeroSection() {
             {/* CTA Button */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/destinations"
+                href="/rooms"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/20 transition-all duration-200 hover:scale-105"
               >
                 Book a Room
