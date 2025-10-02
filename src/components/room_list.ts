@@ -7,18 +7,18 @@ export  const rooms = [
             price: 250,
             rating: 4.9,
             reviews: 1000,
-            image: "/second1.jpg",
+            image: "/pic1.jpeg",
             badge: "Best Seller"
         },
         {
             id: 2,
             name: "The Mark Hotel", 
             location: "New York",
-            category: "Standard Room",
+            category: "Luxury Suites",
             price: 250,
             rating: 4.8,
             reviews: 1100,
-            image: "/second1.jpg",
+            image: "/pic2.jpg",
             badge: 'cheap'
         },
         {
@@ -29,7 +29,7 @@ export  const rooms = [
             price: 320,
             rating: 4.7,
             reviews: 950,
-            image: "/api/placeholder/300/200",
+            image: "/pic3.jpg",
             badge: "Popular"
         },
         {
@@ -40,7 +40,7 @@ export  const rooms = [
             price: 280,
             rating: 4.6,
             reviews: 870,
-            image: "/api/placeholder/300/200",
+            image: "/pic4.jpg",
             badge: "Sea View"
         },
         {
@@ -51,7 +51,7 @@ export  const rooms = [
             price: 210,
             rating: 4.5,
             reviews: 650,
-            image: "/api/placeholder/300/200",
+            image: "/pic5.jpg",
             badge: "Family"
         },
         {
@@ -62,7 +62,7 @@ export  const rooms = [
             price: 400,
             rating: 4.9,
             reviews: 1200,
-            image: "/api/placeholder/300/200",
+            image: "/pic6.jpg",
             badge: "Top Rated"
         },
         {
@@ -73,7 +73,7 @@ export  const rooms = [
             price: 230,
             rating: 4.4,
             reviews: 540,
-            image: "/api/placeholder/300/200",
+            image: "/pic7.jpg",
             badge: "Resort"
         },
         {
@@ -84,7 +84,7 @@ export  const rooms = [
             price: 180,
             rating: 4.3,
             reviews: 430,
-            image: "/api/placeholder/300/200",
+            image: "/pic8.jpg",
             badge: "Budget"
         },
         {
@@ -95,7 +95,7 @@ export  const rooms = [
             price: 350,
             rating: 4.8,
             reviews: 980,
-            image: "/api/placeholder/300/200",
+            image: "/pic9.jpg",
             badge: "Heritage"
         },
         {

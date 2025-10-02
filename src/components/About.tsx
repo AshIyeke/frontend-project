@@ -2,19 +2,13 @@
 export default function AboutPage() {
   return (
     <div className="bg-white dark:bg-gray-900 text-gray-800">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] bg-[url('https://unsplash.com/photos/a-pool-with-people-in-it-by-a-building-with-a-roof-hCWvC95hPW8')] bg-cover bg-center flex items-center justify-center">
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <h1 className="relative text-4xl md:text-6xl font-bold text-white text-center">
-          About Our Hotel
-        </h1>
-      </section>
+      
 
       {/* Our Story */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <img
-            src="https://images.unsplash.com/photo-1551887374-9471bf7b3f1e?auto=format&fit=crop&w=800&q=80"
+            src="about.jpg"
             alt="Hotel interior"
             className="rounded-lg shadow-lg"
           />

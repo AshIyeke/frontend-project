@@ -56,7 +56,9 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          
+          <div className="md:hidden justify-center items-center flex gap-4">
+            <span><ModeToggle /></span>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-blue-600 focus:outline-none"
@@ -65,20 +67,20 @@ export function Navbar() {
             </button>
           </div>
         </div>
-
+            
         {/* Mobile Menu */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <ModeToggle />
+          
           <div className="py-4 space-y-4 border-t border-gray-200">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-200"
+                className="block px-4 py-2 text-black dark:text-white dark:hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -86,7 +88,7 @@ export function Navbar() {
             ))}
 
             <div className="px-4 pt-4 space-y-3 border-t border-gray-200">
-              <button className="w-full px-6 py-3 text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
+              <button className="w-full px-6 py-3 text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-white transition-all duration-200">
                 Login
               </button>
               <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md">
