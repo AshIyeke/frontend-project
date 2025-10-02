@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { rooms } from "./room_list";
-import RoomCard from "./roomcard";
+import RoomCard from "./Roomcard";
 export default function Features() {
   // Filter rooms to only show suites
-  const suiteRooms = rooms.filter(room => room.category === 'Luxury Suites');
+  const suiteRooms = rooms.filter((room) => room.category === "Luxury Suites");
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
@@ -19,27 +19,33 @@ export default function Features() {
             Our Luxury Suite Collection
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Experience unparalleled luxury in our handpicked suite collection, designed for 
-            the most discerning travelers seeking ultimate comfort and elegance.
+            Experience unparalleled luxury in our handpicked suite collection,
+            designed for the most discerning travelers seeking ultimate comfort
+            and elegance.
           </p>
         </div>
 
         {/* Suites Grid */}
         {suiteRooms.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {suiteRooms.map(room => (
+            {suiteRooms.map((room) => (
               <RoomCard key={room.id} room={room} />
             ))}
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No suites available at the moment.</p>
+            <p className="text-gray-500 text-lg">
+              No suites available at the moment.
+            </p>
           </div>
         )}
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <Link href={"/rooms"} className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-3 rounded-lg font-semibold border-2 border-gray-200 transition-all duration-300 hover:border-blue-600 hover:text-blue-600">
+          <Link
+            href={"/rooms"}
+            className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-3 rounded-lg font-semibold border-2 border-gray-200 transition-all duration-300 hover:border-blue-600 hover:text-blue-600"
+          >
             View All Rooms
           </Link>
         </div>
