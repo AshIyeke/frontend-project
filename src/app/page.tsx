@@ -2,8 +2,7 @@
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection"
 import Search  from "@/components/Search"
-// import AnimatedTestimonialsDemo from "@/components/Testimonials"
-import { Animation } from "react-day-picker"
+
 import AboutSection from "@/components/Aboutsection";
 import Features from "@/components/Features";
 
