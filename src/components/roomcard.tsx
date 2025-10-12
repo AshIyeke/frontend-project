@@ -19,7 +19,7 @@ interface Props {
 export default function RoomCard({ room }: Props) {
   return (
     <section className="p-8 w-full  space-y-5  ">
-      <Link href={"rooms.id"}>
+      <Link href={`/rooms/${room.id}`}>
         <img
           src={room.image}
           alt={room.name}

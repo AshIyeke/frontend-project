@@ -1,4 +1,15 @@
-export  const rooms = [
+export interface RoomData {
+    id: number;
+    name: string;
+    location: string;
+    category: string;
+    price: number;
+    rating: number;
+    reviews: number;
+    image: string;
+    badge: string
+}
+export const rooms: RoomData[] = [
         {
             id: 1,
             name: "The Mark Hotel",
@@ -6,7 +17,7 @@ export  const rooms = [
             category: "Luxury Suites",
             price: 250,
             rating: 4.9,
-            reviews: 1000,
+            reviews: 100,
             image: "/pic1.jpeg",
             badge: "Best Seller"
         },

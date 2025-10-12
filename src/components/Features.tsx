@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { rooms } from "./room_list";
+import { rooms } from "../data/room_list";
 import RoomCard from "./Roomcard";
 export default function Features() {
   // Filter rooms to only show suites
-  const suiteRooms = rooms.filter((room) => room.category === "Luxury Suites");
+  const suiteRooms = rooms.filter((r) =>
+    r.category.toLowerCase().includes("suite")
+  );
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
