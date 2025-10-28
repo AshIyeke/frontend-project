@@ -1,11 +1,5 @@
-"use client"
-import {
-  createContext,
-  useState,
-  ReactNode,
-  useContext,
-  useEffect,
-} from "react";
+"use client";
+import { createContext, useState, useContext, useEffect } from "react";
 import { RoomData } from "@/data/room_list";
 
 interface Booking {
@@ -29,7 +23,8 @@ interface BContextType {
     checkOut: string,
     guests: number
   ) => void;
-  clearBookings: (bookingId?: string) => void; // Make bookingId optional for clearing all
+  user: string;
+  clearBookings: (bookingId?: string) => void;
   checkIn: string;
   setCheckIn: React.Dispatch<React.SetStateAction<string>>;
   checkOut: string;
@@ -38,8 +33,8 @@ interface BContextType {
   setGuests: React.Dispatch<React.SetStateAction<number>>;
   confirmBooking: boolean;
   setConfirmBooking: React.Dispatch<React.SetStateAction<boolean>>;
-  paid: boolean;
-  setPaid: React.Dispatch<React.SetStateAction<boolean>>;
+  updatePaymentStatus: (bookingId: string) => void;
+
 }
 
 export const BContext = createContext<BContextType | undefined>(undefined);
@@ -63,9 +58,8 @@ export const BProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [guests, setGuests] = useState(0);
+  const [guests, setGuests] = useState(1);
   const [confirmBooking, setConfirmBooking] = useState(false);
-  const [paid, setPaid] = useState(false);
 
   // Save bookings to localStorage whenever they change
   useEffect(() => {
@@ -82,15 +76,29 @@ export const BProvider = ({ children }: { children: React.ReactNode }) => {
     checkOut: string,
     guests: number
   ) => {
-    const start = new Date(checkIn).getTime();
-    const end = new Date(checkOut).getTime();
-    const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+    if (!checkIn || !checkOut || !guests) {
+      alert(
+        "Please fill in check-in date, check-out date, and number of guests."
+      );
+      return;
+    }
+
+    const startDate = new Date(checkIn);
+    const endDate = new Date(checkOut);
+
+    if (endDate <= startDate) {
+      alert("Check-out date must be after check-in date.");
+      return; // Stop the function execution
+    }
+    const nights = Math.ceil(
+      (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
+    );
     const validNights = nights > 0 ? nights : 0;
     const bookingTotalPrice = validNights * room.price;
 
     const newBooking: Booking = {
       bookingId: Math.random().toString(36).substring(2, 9),
-      user: "John Doe", // Replace with actual user
+      user: "Ashioma", 
       room: room,
       guests: guests,
       checkIn: checkIn,
@@ -98,13 +106,20 @@ export const BProvider = ({ children }: { children: React.ReactNode }) => {
       nights: validNights,
       totalPrice: bookingTotalPrice,
       confirmBooking: confirmBooking,
-      paid: paid,
+      paid: false, // Default new bookings to not paid
     };
 
     setBookings((prev) => [...prev, newBooking]);
-    setConfirmBooking(true);
+    if (checkIn && checkOut && guests) {
+      setConfirmBooking(true);
+    }
     setTimeout(() => setConfirmBooking(false), 3000);
     console.log("Booking added:", newBooking);
+
+    // Reset the booking form state
+    setCheckIn("");
+    setCheckOut("");
+    setGuests(1);
   };
 
   const clearBookings = (bookingId?: string) => {
@@ -115,6 +130,16 @@ export const BProvider = ({ children }: { children: React.ReactNode }) => {
     } else {
       setBookings([]); // If no ID is provided, clear all bookings
     }
+  };
+
+  const updatePaymentStatus = (bookingId: string) => {
+    setBookings((prevBookings) =>
+      prevBookings.map((booking) =>
+        booking.bookingId === bookingId
+          ? { ...booking, paid: !booking.paid }
+          : booking
+      )
+    );
   };
 
   return (
@@ -131,9 +156,8 @@ export const BProvider = ({ children }: { children: React.ReactNode }) => {
         setGuests,
         confirmBooking,
         setConfirmBooking,
-        paid,
-        setPaid,
-        
+        updatePaymentStatus,
+        user: "Ashioma", 
       }}
     >
       {children}

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { BContext } from "./bcontext";
-
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import {
   Calendar,
@@ -32,6 +33,14 @@ export default function BookingCard({ room }: Props) {
     setGuests,
     confirmBooking,
   } = useContext(BContext)!;
+
+  const router = useRouter();
+
+  const handleBookNow = () => {
+    addBooking(room, checkIn, checkOut, guests);
+    
+    router.push("/dashboard");
+  };
 
   const calculateNights = () => {
     if (!checkIn || !checkOut) return 0;
@@ -139,7 +148,7 @@ export default function BookingCard({ room }: Props) {
         )}
 
         <button
-          onClick={() => addBooking(room, checkIn, checkOut, guests)}
+          onClick={handleBookNow}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
         >
           Book Now
