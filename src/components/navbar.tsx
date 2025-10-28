@@ -12,6 +12,7 @@ export function Navbar() {
     { name: "Rooms", href: "/rooms" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
+    {name:"dashboard", href:"/dashboard" }
   ];
 
   return (

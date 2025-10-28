@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { RoomData, rooms } from "@/data/room_list";
 // import { Label } from "@/components/ui/label"
 import {
   Popover,
@@ -30,7 +31,10 @@ export default function Search() {
     console.log("Form submitted with values:");
     console.log("Location:", Location);
     console.log("Guests:", guests);
-    console.log("Check-In Date:", checkIn ? checkIn.toLocaleDateString() : "Not selected");
+    console.log(
+      "Check-In Date:",
+      checkIn ? checkIn.toLocaleDateString() : "Not selected"
+    );
 
     setLocation("");
     setGuests("");
@@ -38,7 +42,7 @@ export default function Search() {
   }
   return (
     <div className=" md:flex flex-wrap space-y-4 mx-auto gap-6 p-8 my-9  justify-center items-center text-center rounded-lg  ">
-      <div>
+      {/* <div>
         <h1>Location</h1>
         <input
           onChange={(e) => handleLocation(e)}
@@ -48,18 +52,33 @@ export default function Search() {
           type="text"
           placeholder="Location"
         />
+      </div> */}
+      <div>
+        <h1>Location</h1>
+        <select
+          onChange={(e) => handleLocation(e)}
+          className="border-2 p-1.5 rounded-lg w-60 "
+          aria-label="Location"
+        >
+          {rooms.map((room: RoomData) => (
+            <option key={room.id} value={room.location}>
+              {room.location}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
-        <h1>Guest and rooms</h1>
+        <h1>Room Grade</h1>
         <select
-          onSelect={(e) => handleGuest(e)}
+          onChange={(e) => handleGuest(e)}
           className="border-2 p-1.5 rounded-lg w-60 "
           aria-label="Check-in"
         >
-          <option value={1}>1 Guests</option>
-          <option value={2}>2 Guest</option>
-          <option value={3}>3 Guests</option>
-          <option value={4}>4 Guests</option>
+          {rooms.map((room: RoomData) => (
+            <option key={room.id} value={room.category}>
+              {room.category}
+            </option>
+          ))}
         </select>
       </div>
       <div className=" ">
@@ -89,7 +108,12 @@ export default function Search() {
         </Popover>
       </div>
 
-      <Button onClick={(e)=>handleSubmit(e)} className="bg-blue-300 mt-2 p-5 cursor-pointer ">Search</Button>
+      <Button
+        onClick={(e) => handleSubmit(e)}
+        className="bg-blue-300 mt-2 p-5 cursor-pointer "
+      >
+        Search
+      </Button>
     </div>
   );
 }

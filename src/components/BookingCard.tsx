@@ -1,4 +1,6 @@
-"use client";
+import { useContext } from "react";
+import { BContext } from "./bcontext";
+
 import React, { useState } from "react";
 import {
   Calendar,
@@ -20,27 +22,24 @@ interface Props {
 }
 
 export default function BookingCard({ room }: Props) {
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
-  const [guests, setGuests] = useState(2);
-  const [showBookingConfirm, setShowBookingConfirm] = useState(false);
-
-  const handleBooking = () => {
-    if (checkIn && checkOut) {
-      setShowBookingConfirm(true);
-      setTimeout(() => setShowBookingConfirm(false), 3000);
-    }
-  };
+  const {
+    addBooking,
+    checkIn,
+    setCheckIn,
+    checkOut,
+    setCheckOut,
+    guests,
+    setGuests,
+    confirmBooking,
+  } = useContext(BContext)!;
 
   const calculateNights = () => {
-    if (checkIn && checkOut) {
-      const start = new Date(checkIn).getTime();
-      const end = new Date(checkOut).getTime();
-      const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
-
-      return nights > 0 ? nights : 0;
-    }
-    return 0;
+    if (!checkIn || !checkOut) return 0;
+    const inDate = new Date(checkIn);
+    const outDate = new Date(checkOut);
+    const diffTime = outDate.getTime() - inDate.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays > 0 ? diffDays : 0;
   };
 
   const totalPrice = calculateNights() * room.price;
@@ -54,7 +53,7 @@ export default function BookingCard({ room }: Props) {
           <span className="text-gray-600">/ night</span>
         </div>
 
-        {showBookingConfirm && (
+        {confirmBooking && (
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4 flex items-center gap-2">
             <Check className="w-5 h-5 text-green-600" />
             <span className="text-green-800 text-sm">
@@ -67,9 +66,9 @@ export default function BookingCard({ room }: Props) {
           <div>
             <label
               htmlFor="check-in"
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-gray-700 mb-2 "
             >
-              <Calendar className="w-4 h-4 inline mr-1" />
+              <Calendar className="w-4 h-4 inline mr-1 text-black" />
               Check-in
             </label>
             <input
@@ -77,7 +76,7 @@ export default function BookingCard({ room }: Props) {
               type="date"
               value={checkIn}
               onChange={(e) => setCheckIn(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black "
             />
           </div>
 
@@ -86,7 +85,7 @@ export default function BookingCard({ room }: Props) {
               htmlFor="check-out"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              <Calendar className="w-4 h-4 inline mr-1" />
+              <Calendar className="w-4 h-4 inline mr-1 text-black" />
               Check-out
             </label>
             <input
@@ -94,30 +93,25 @@ export default function BookingCard({ room }: Props) {
               type="date"
               value={checkOut}
               onChange={(e) => setCheckOut(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
             />
           </div>
-
           <div>
             <label
-              htmlFor="guests"
+              htmlFor="check-out"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              <Users className="w-4 h-4 inline mr-1" />
+              <Calendar className="w-4 h-4 inline mr-1 text-black" />
               Guests
             </label>
-            <select
+            <input
               id="guests"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
+              placeholder="Number of Guests"
               value={guests}
+              type="number"
               onChange={(e) => setGuests(Number(e.target.value))}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              {[1, 2, 3].map((num) => (
-                <option key={num} value={num}>
-                  {num} {num === 1 ? "Guest" : "Guests"}
-                </option>
-              ))}
-            </select>
+            />
           </div>
         </div>
 
@@ -145,7 +139,7 @@ export default function BookingCard({ room }: Props) {
         )}
 
         <button
-          onClick={handleBooking}
+          onClick={() => addBooking(room, checkIn, checkOut, guests)}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
         >
           Book Now

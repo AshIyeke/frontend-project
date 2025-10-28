@@ -44,10 +44,10 @@ export default function RoomCard({ room }: Props) {
       </div>
       <div className="mt-4 font-bold text-xl">${room.price}/night</div>
       <Link
-        href={"rooms.id"}
+        href={`/rooms/${room.id}`}
         className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
       >
-        Book Now
+        View Details
       </Link>
     </section>
   );
