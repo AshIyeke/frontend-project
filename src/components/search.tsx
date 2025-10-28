@@ -4,13 +4,11 @@ import { ChevronDownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { RoomData, rooms } from "@/data/room_list";
-// import { Label } from "@/components/ui/label"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { setgid } from "process";
 
 export default function Search() {
   const [open, setOpen] = useState(false);
@@ -28,7 +26,7 @@ export default function Search() {
   }
   function handleSubmit(e: any) {
     e.preventDefault();
-    console.log("Form submitted with values:");
+    console.log("Form submitted");
     console.log("Location:", Location);
     console.log("Guests:", guests);
     console.log(
@@ -42,17 +40,6 @@ export default function Search() {
   }
   return (
     <div className=" md:flex flex-wrap space-y-4 mx-auto gap-6 p-8 my-9  justify-center items-center text-center rounded-lg  ">
-      {/* <div>
-        <h1>Location</h1>
-        <input
-          onChange={(e) => handleLocation(e)}
-          value={Location}
-          className="border-2 p-1.5 w-60 rounded-lg"
-          aria-label="Location"
-          type="text"
-          placeholder="Location"
-        />
-      </div> */}
       <div>
         <h1>Location</h1>
         <select
