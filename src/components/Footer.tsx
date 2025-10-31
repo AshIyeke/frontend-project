@@ -61,7 +61,7 @@ export default function Footer() {
             </Link>
             
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Discover the world's most luxurious hotels and resorts. Book your perfect stay with confidence and create unforgettable memories.
+              Discover the world&apos;s most luxurious hotels and resorts. Book your perfect stay with confidence and create unforgettable memories.
             </p>
 
             {/* Social Media Links */}

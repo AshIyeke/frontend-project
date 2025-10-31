@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // app/about/page.tsx
 export default function AboutPage() {
   return (
@@ -7,10 +9,12 @@ export default function AboutPage() {
       {/* Our Story */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-10 items-center">
-          <img
+          <Image
             src="about.jpg"
             alt="Hotel interior"
             className="rounded-lg shadow-lg"
+            width={600}
+            height={400}
           />
           <div>
             <h2 className="text-3xl font-bold mb-4  dark:text-white ">Our Story</h2>
@@ -20,7 +24,7 @@ export default function AboutPage() {
               unforgettable experiences for travelers from around the world.
             </p>
             <p className="text-gray-600  dark:text-white  leading-relaxed">
-              Whether you're here for business or leisure, we promise warmth, elegance,
+              Whether you&apos;re here for business or leisure, we promise warmth, elegance,
               and personalized service that makes you feel at home.
             </p>
           </div>
@@ -33,10 +37,12 @@ export default function AboutPage() {
           <h2 className="text-3xl dark:text-white font-bold mb-12">Why Stay With Us?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-              <img
+              <Image
                 src="https://img.icons8.com/ios-filled/100/000000/bed.png"
                 alt="Comfort"
                 className="w-16 mx-auto mb-4"
+                width={64}
+                height={64}
               />
               <h3 className="text-xl font-semibold mb-2">Luxury & Comfort</h3>
               <p className="text-gray-600">

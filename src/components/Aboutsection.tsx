@@ -42,14 +42,14 @@ export default function AboutSection() {
 
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               We believe that every journey deserves a perfect stay. With over a
-              decade of excellence, we've crafted unforgettable experiences for
+              decade of excellence, we&apos;ve crafted unforgettable experiences for
               travelers worldwide, combining world-class hospitality with
               cutting-edge technology.
             </p>
 
             <p className="text-gray-600 mb-8 leading-relaxed">
               Our carefully curated collection of hotels spans across the
-              globe's most sought-after destinations. From boutique hideaways to
+              globe&apos;s most sought-after destinations. From boutique hideaways to
               grand luxury resorts, each property is handpicked to ensure you
               experience nothing but the finest accommodations, exceptional
               service, and memories that last a lifetime.

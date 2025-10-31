@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -16,15 +16,15 @@ export default function Search() {
   const [Location, setLocation] = useState("");
   const [guests, setGuests] = useState("");
 
-  function handleLocation(e: any) {
-    setLocation(e.target.value);
-    console.log(Location);
+  function handleLocation(location: string) {
+    setLocation(location);
+    console.log(location);
   }
-  function handleGuest(e: any) {
-    setGuests(e.target.value);
+  function handleGuest(g: string) {
+    setGuests(g);
     console.log(guests);
   }
-  function handleSubmit(e: any) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     console.log("Form submitted");
     console.log("Location:", Location);
@@ -43,7 +43,7 @@ export default function Search() {
       <div>
         <h1>Location</h1>
         <select
-          onChange={(e) => handleLocation(e)}
+          onChange={(e) => handleLocation(e.target.value)}
           className="border-2 p-1.5 rounded-lg w-60 "
           aria-label="Location"
         >
@@ -57,7 +57,7 @@ export default function Search() {
       <div>
         <h1>Room Grade</h1>
         <select
-          onChange={(e) => handleGuest(e)}
+          onChange={(e) => handleGuest(e.target.value)}
           className="border-2 p-1.5 rounded-lg w-60 "
           aria-label="Check-in"
         >

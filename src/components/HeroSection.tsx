@@ -39,7 +39,7 @@ export default function HeroSection() {
 
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              The World's Best Stays, Ready for{" "}
+              The World&apos;s Best Stays, Ready for{" "}
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                 You
               </span>

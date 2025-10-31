@@ -1,20 +1,9 @@
 import { useContext } from "react";
 import { BContext } from "./bcontext";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 import {
   Calendar,
-  Users,
-  Wifi,
-  Coffee,
-  Tv,
-  Wind,
-  Check,
-  ChevronLeft,
-  ChevronRight,
-  Star,
-  MapPin,
+  Check
 } from "lucide-react";
 import { RoomData } from "@/data/room_list";
 
