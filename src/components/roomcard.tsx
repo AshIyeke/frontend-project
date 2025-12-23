@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface Room {
   id: number;
@@ -19,12 +20,11 @@ interface Props {
 export default function RoomCard({ room }: Props) {
   return (
     <section className="p-8 w-full  space-y-5  ">
-      <Link href={`/rooms/${room.id}`}>
-        <img
-          src={room.image}
-          alt={room.name}
-          className="w-full h-60  rounded-2xl object-cover"
-        />
+      <Link
+        href={`/rooms/${room.id}`}
+        className="block relative h-60 rounded-2xl overflow-hidden"
+      >
+        <Image src={room.image} alt={room.name} fill className="object-cover" />
       </Link>
 
       <div className="flex items-center justify-between my-2">
