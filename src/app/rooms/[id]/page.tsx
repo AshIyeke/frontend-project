@@ -1,6 +1,6 @@
 "use client";
-import { RoomData, rooms } from "@/data/room_list";
-import BookingCard from "@/components/BookingCard";
+import { RoomData, rooms } from "../../../data/room_list";
+import BookingCard from "../../../components/BookingCard";
 import { Bed, Users, Wifi, Star } from "lucide-react";
 import Image from "next/image";
 import { useParams } from "next/navigation";

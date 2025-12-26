@@ -1,8 +1,9 @@
-import LoginPage from "@/components/Login"
+import LoginPage from "../components/Login";
 
 export default function Login() {
-    return (<div className="dark:bg-gray-900">
-        <LoginPage/>
+  return (
+    <div className="dark:bg-gray-900">
+      <LoginPage />
     </div>
-    )
+  );
 }

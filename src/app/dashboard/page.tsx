@@ -1,11 +1,11 @@
 "use client";
-import { useBContext } from "@/components/bcontext";
-import { Button } from "@/components/ui/button";
+import { useBContext } from "../components/bcontext";
+import { Button } from "../components/ui/button";
 import { LayoutDashboard, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 export default function DashboardPage() {
-  const { bookings, clearBookings, updatePaymentStatus, user} = useBContext();
+  const { bookings, clearBookings, updatePaymentStatus, user } = useBContext();
 
   if (!bookings || bookings.length === 0) {
     return (

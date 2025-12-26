@@ -1,14 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronDownIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { RoomData, rooms } from "@/data/room_list";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Button } from "./ui/button";
+import { Calendar } from "./ui/calendar";
+import { RoomData, rooms } from "../data/room_list";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 export default function Search() {
   const [open, setOpen] = useState(false);
