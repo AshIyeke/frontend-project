@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 
-export function Navbar() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   
   const navLinks = [
@@ -48,7 +48,7 @@ export function Navbar() {
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <ModeToggle />
-            <Link className="px-6 py-2.5 text-gray-700 font-medium hover:text-blue-600 transition-colors duration-200" href={"/login"} >
+            <Link className="px-6 py-2.5 text-gray-700 dark:text-white font-medium hover:text-blue-600 transition-colors duration-200" href={"/login"} >
               login
             </Link>
             <Link className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md hover:shadow-lg" href={"/signup"}>
