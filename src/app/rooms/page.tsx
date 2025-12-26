@@ -1,5 +1,5 @@
 "use client";
-import RoomCard from "@/components/Roomcard";
+import RoomCard from "../../components/Roomcard";
 import { rooms } from "@/data/room_list";
 import { useState, useEffect } from "react";
 
