@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useState, useContext, useEffect } from "react";
-import { RoomData } from "@/data/room_list";
+import { RoomData } from "../data/room_list";
 
 interface Booking {
   bookingId: string;

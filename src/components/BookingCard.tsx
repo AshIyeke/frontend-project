@@ -5,7 +5,7 @@ import {
   Calendar,
   Check
 } from "lucide-react";
-import { RoomData } from "@/data/room_list";
+import { RoomData } from "../data/room_list";
 
 interface Props {
   room: RoomData;
