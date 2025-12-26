@@ -1,6 +1,6 @@
 "use client";
-import { useBContext } from "../components/bcontext";
-import { Button } from "../components/ui/button";
+import { useBContext } from "../../components/bcontext";
+import { Button } from "../../components/ui/button";
 import { LayoutDashboard, Trash2 } from "lucide-react";
 import Image from "next/image";
 
