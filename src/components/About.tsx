@@ -8,7 +8,7 @@ export default function AboutPage() {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <Image
-            src="about.jpg"
+            src="/about.jpg"
             alt="Hotel interior"
             className="rounded-lg shadow-lg"
             width={600}
@@ -47,6 +47,7 @@ export default function AboutPage() {
                 className="w-16 mx-auto mb-4"
                 width={64}
                 height={64}
+                unoptimized
               />
               <h3 className="text-xl font-semibold mb-2">Luxury & Comfort</h3>
               <p className="text-gray-600">

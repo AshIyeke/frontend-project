@@ -83,7 +83,7 @@ export default function RoomPage() {
       </div>
 
       {/* Room Details & Booking */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 justify-between">
         <div className="lg:col-span-2">
           <div className="pb-6 border-b border-gray-200 dark:border-gray-700">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">
@@ -115,7 +115,7 @@ export default function RoomPage() {
                   key={amenity}
                   className="flex items-center text-gray-700 dark:text-gray-300"
                 >
-                  <Wifi className="w-5 h-5 mr-3" />
+                  <Wifi className="w-5 h-5 mr-2" />
                   {amenity}
                 </li>
               ))}
@@ -124,7 +124,7 @@ export default function RoomPage() {
         </div>
 
         {/* Booking Card */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 mr-5">
           <BookingCard room={room} />
         </div>
       </div>

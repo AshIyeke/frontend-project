@@ -7,12 +7,12 @@ import { ModeToggle } from "./ModeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const navLinks = [
     { name: "Rooms", href: "/rooms" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-    {name:"dashboard", href:"/dashboard" }
+    { name: "dashboard", href: "/dashboard" },
   ];
 
   return (
@@ -48,18 +48,26 @@ export default function Navbar() {
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <ModeToggle />
-            <Link className="px-6 py-2.5 text-gray-700 dark:text-white font-medium hover:text-blue-600 transition-colors duration-200" href={"/login"} >
+            <Link
+              className="px-6 py-2.5 text-gray-700 dark:text-white font-medium hover:text-blue-600 transition-colors duration-200"
+              href={"/login"}
+            >
               login
             </Link>
-            <Link className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md hover:shadow-lg" href={"/signup"}>
+            <Link
+              className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md hover:shadow-lg"
+              href={"/signup"}
+            >
               Sign Up
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          
+
           <div className="md:hidden justify end flex items-center space-x-4">
-            <span><ModeToggle /></span>
+            <span>
+              <ModeToggle />
+            </span>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-blue-600 focus:outline-none"
@@ -68,14 +76,13 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-            
+
         {/* Mobile Menu */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          
           <div className="py-4 space-y-4 border-t border-gray-200">
             {navLinks.map((link) => (
               <Link
@@ -90,17 +97,16 @@ export default function Navbar() {
 
             <div className="px-4 pt-4 space-y-3 border- border-gray-200">
               <Link href="/login">
-              <button className="w-full px-6 py-3 text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
-                Login
-              </button>
+                <button className="w-full px-6 py-3 text-gray-700 font-medium border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-200">
+                  Login
+                </button>
               </Link>
               <Link href="/signup">
-              <button className="w-full mt-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md">
-                Sign Up
-              </button>
+                <button className="w-full mt-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-200 shadow-md">
+                  Sign Up
+                </button>
               </Link>
             </div>
-
           </div>
         </div>
       </div>
