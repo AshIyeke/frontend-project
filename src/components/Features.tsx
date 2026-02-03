@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { rooms } from "../data/room_list";
-import RoomCard from "./Roomcard";
+import RoomCard from "./RoomCard";
 
 export default function Features() {
   // Filter rooms to only show suites
   const suiteRooms = rooms.filter((r) =>
-    r.category.toLowerCase().includes("suite")
+    r.category.toLowerCase().includes("suite"),
   );
 
   return (
