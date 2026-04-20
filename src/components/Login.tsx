@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -16,11 +17,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-900 px-6">
-      <div className="w-full max-w-md bg-gray-200 rounded-lg shadow-lg p-8">
-        {/* Logo or Title */}
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          Login
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-900 px-6 py-12">
+      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+        {/* Logo */}
+        <div className="flex justify-center mb-8">
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">H</span>
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+              HotelLux
+            </span>
+          </Link>
+        </div>
+
+        {/* Title */}
+        <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
+          Welcome Back
         </h1>
 
         {/* Form */}

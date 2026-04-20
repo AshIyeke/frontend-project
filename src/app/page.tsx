@@ -11,12 +11,12 @@ export default function Home() {
     { ssr: false }
   );
   return (
-    <div className="container mx-auto">
+    <main>
       <HeroSection />
       <Search />
       <AboutSection />
       <Features />
       <AnimatedTestimonialsDemo />
-    </div>
+    </main>
   );
 }

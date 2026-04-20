@@ -64,7 +64,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
 
-          <div className="md:hidden justify end flex items-center space-x-4">
+          <div className="md:hidden justify-end flex items-center space-x-4">
             <span>
               <ModeToggle />
             </span>

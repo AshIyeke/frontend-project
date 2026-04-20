@@ -42,8 +42,8 @@ export default function BookingCard({ room }: Props) {
 
   const totalPrice = calculateNights() * room.price;
   return (
-    <div className="lg:col-span-1 w-100  mx-auto">
-      <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-24">
+    <div className="lg:col-span-1 w-full max-w-md mx-auto">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-100 dark:border-gray-700 sticky top-24 transition-all">
         <div className="flex items-baseline gap-2 mb-6">
           <span className="text-4xl font-bold text-gray-900">
             ${room.price}
