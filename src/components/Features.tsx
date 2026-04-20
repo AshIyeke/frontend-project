@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { rooms } from "../data/room_list";
-import RoomCard from "./RoomCard";
+import RoomCard from "@/components/RoomCard";
 
 export default function Features() {
   // Filter rooms to only show suites

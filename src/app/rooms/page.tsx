@@ -1,6 +1,6 @@
 "use client";
-import RoomCard from "../../components/RoomCard";
-import { rooms } from "../../data/room_list";
+import RoomCard from "@/components/RoomCard";
+import { rooms } from "@/data/room_list";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
